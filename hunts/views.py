@@ -14,8 +14,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
-@login_required(login_url="/")
 def index(request):
     form = HuntForm()
 
@@ -37,8 +35,6 @@ def index(request):
     }
     return render(request, "index.html", context)
 
-
-@login_required(login_url="/")
 def stats(request, hunt_slug):
     hunt = Hunt.get_object_or_404(user=request.user, slug=hunt_slug)
 
